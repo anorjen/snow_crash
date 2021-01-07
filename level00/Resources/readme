@@ -5,6 +5,7 @@ level00@SnowCrash:~$ find / -user flag00 2>/dev/null
 level00@SnowCrash:~$ cat /usr/sbin/john
 cdiiddwpgswtgt
 
+## https://www.dcode.fr/en
 ## https://planetcalc.ru/1434/
 ## ROT11 nottoohardhere
 

